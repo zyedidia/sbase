@@ -7,13 +7,13 @@
 
 #include "../sha256.h"
 
-static uint32_t ror(uint32_t n, int k) { return (n >> k) | (n << (32-k)); }
+static uint32_t ror_(uint32_t n, int k) { return (n >> k) | (n << (32-k)); }
 #define Ch(x,y,z)  (z ^ (x & (y ^ z)))
 #define Maj(x,y,z) ((x & y) | (z & (x | y)))
-#define S0(x)      (ror(x,2) ^ ror(x,13) ^ ror(x,22))
-#define S1(x)      (ror(x,6) ^ ror(x,11) ^ ror(x,25))
-#define R0(x)      (ror(x,7) ^ ror(x,18) ^ (x>>3))
-#define R1(x)      (ror(x,17) ^ ror(x,19) ^ (x>>10))
+#define S0(x)      (ror_(x,2) ^ ror_(x,13) ^ ror_(x,22))
+#define S1(x)      (ror_(x,6) ^ ror_(x,11) ^ ror_(x,25))
+#define R0(x)      (ror_(x,7) ^ ror_(x,18) ^ (x>>3))
+#define R1(x)      (ror_(x,17) ^ ror_(x,19) ^ (x>>10))
 
 static const uint32_t K[64] = {
 0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,

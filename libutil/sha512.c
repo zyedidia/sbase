@@ -8,13 +8,13 @@
 
 #include "../sha512.h"
 
-static uint64_t ror(uint64_t n, int k) { return (n >> k) | (n << (64-k)); }
+static uint64_t ror_(uint64_t n, int k) { return (n >> k) | (n << (64-k)); }
 #define Ch(x,y,z)  (z ^ (x & (y ^ z)))
 #define Maj(x,y,z) ((x & y) | (z & (x | y)))
-#define S0(x)      (ror(x,28) ^ ror(x,34) ^ ror(x,39))
-#define S1(x)      (ror(x,14) ^ ror(x,18) ^ ror(x,41))
-#define R0(x)      (ror(x,1) ^ ror(x,8) ^ (x>>7))
-#define R1(x)      (ror(x,19) ^ ror(x,61) ^ (x>>6))
+#define S0(x)      (ror_(x,28) ^ ror_(x,34) ^ ror_(x,39))
+#define S1(x)      (ror_(x,14) ^ ror_(x,18) ^ ror_(x,41))
+#define R0(x)      (ror_(x,1) ^ ror_(x,8) ^ (x>>7))
+#define R1(x)      (ror_(x,19) ^ ror_(x,61) ^ (x>>6))
 
 static const uint64_t K[80] = {
 0x428a2f98d728ae22ULL, 0x7137449123ef65cdULL, 0xb5c0fbcfec4d3b2fULL, 0xe9b5dba58189dbbcULL,

@@ -5,7 +5,7 @@ VERSION = 0.0
 PREFIX = /usr/local
 MANPREFIX = $(PREFIX)/share/man
 
-CC = cc
+CC = /opt/lfi/toolchain/bin/lfi-clang
 AR = ar
 RANLIB = ranlib
 
